@@ -1,11 +1,13 @@
 
 import Login from './components/Login'
+import IndetificacaoAluno from './components/IdentificacaoAluno'
 
 function App() {
 
   return (
     <div className='App'>
-      <Login />
+      {/* <Login /> */}
+      <IndetificacaoAluno />
     </div>
   )
 }
