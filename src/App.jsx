@@ -1,5 +1,5 @@
-import './App.css'
-import Login from './components/login/Login.jsx'
+
+import Login from './components/Login'
 
 function App() {
 
