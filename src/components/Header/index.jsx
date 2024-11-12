@@ -9,7 +9,7 @@ const Header = () => {
                 <img src="./../../public/ifrs_branco_completo.png" alt="Logo IFRS" className="logoHeader" />
             </div>
             <div className="autenticacao">
-                <p>Você não está autenticado.</p>
+                <p>Você ainda não está se identificou.</p>
             </div>
         </header>
     );

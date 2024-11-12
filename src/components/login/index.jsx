@@ -18,41 +18,45 @@ const Login = () => {
       <Header />
       <div className="container">
         <form onSubmit={handleSubmit} className="containerLogin">
-          <h1>Acesse o sistema</h1>
-          <div className="input-field">
-            <input
-              type="text"
-              placeholder="E-mail"
-              required
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-            />
-            <FaUser className="icon" />
-          </div>
-          <div className="input-field">
-            <input
-              type="password"
-              placeholder="Senha"
-              required
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            <FaLock className="icon" />
+
+          <div className="tituloLogin">
+            <img src="./../../public/ifrs_vertical.png" alt="Logo IFRS"/>
+            <h1>Entrar</h1>
           </div>
 
-          <div className="recall-forget">
-            <label>
-              <input type="checkbox" />
-              Lembre de mim
-            </label>
-            <a href="#">Esqueceu sua senha?</a>
+          <div className="inputsLogin">
+            <div className="inputUserLogin">
+            <label htmlFor="login">Login</label>
+              <FaUser className="icon" />
+              <input
+                type="text"
+                placeholder="Matrícula ou nome ????"
+                id="login"
+                required
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+              />
+            </div>
+
+            <div className="inputPasswordLogin">
+              <label htmlFor="password">Senha</label>
+              <FaLock className="icon" />
+              <input
+                type="password"
+                placeholder="Senha"
+                id="password"
+                required
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </div>
+
+            <div className="btnSubmitLogin">
+              <button type="submit">Enviar</button>
+            </div>
+
           </div>
-          <button type="submit">Login</button>
-          <div className="signup-link">
-            <p>
-              Não tem uma conta? <a href="#">Registar</a>{" "}
-            </p>
-          </div>
+          
         </form>
       </div>
     </>
