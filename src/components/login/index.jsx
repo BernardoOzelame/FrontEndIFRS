@@ -20,13 +20,13 @@ const Login = () => {
         <form onSubmit={handleSubmit} className="containerLogin">
 
           <div className="tituloLogin">
-            <img src="./../../public/ifrs_vertical.png" alt="Logo IFRS"/>
+            <img src="./../../public/ifrs_vertical.png" alt="Logo IFRS" />
             <h1>Entrar</h1>
           </div>
 
           <div className="inputsLogin">
             <div className="inputUserLogin">
-            <label htmlFor="login">Login</label>
+              <label htmlFor="login">Login</label>
               <FaUser className="icon" />
               <input
                 type="text"
@@ -56,7 +56,7 @@ const Login = () => {
             </div>
 
           </div>
-          
+
         </form>
       </div>
     </>
