@@ -12,7 +12,12 @@ const ModalNovoItem = ({ show, hide }) => {
       <Modal.Body>
         <Form>
           <Form.Group className="mb-3">
+            <Form.Label>Item</Form.Label>
             <Form.Control type="text" placeholder="Ex: Arroz" />
+          </Form.Group>
+          <Form.Group className="mb-3">
+            <Form.Label>Calorias</Form.Label>
+            <Form.Control type="text" placeholder="Ex: 100 kcal" />
           </Form.Group>
         </Form>
       </Modal.Body>
