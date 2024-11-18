@@ -61,6 +61,9 @@ section.modal h3 {
 }
 
 select {
+    /* border: 1px black solid;
+    background: #fff;
+    padding: 0.5rem 1rem; */
     background: #fff;
     border: solid 1px #D9D9D9;
     padding: 0.3rem 1rem;

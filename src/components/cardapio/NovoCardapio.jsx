@@ -75,7 +75,6 @@ const NovoCardapio = () => {
               className="search-input"
             />
           </div>
-
           <div className="w-fit">
             <div className="sidebar-item">
               <label htmlFor="arroz">Arroz</label>
@@ -92,6 +91,10 @@ const NovoCardapio = () => {
             <div className="sidebar-item">
               <label htmlFor="maionese">maionese</label>
               <input type="checkbox" name="maionese" id="maionese" />
+          <div>
+            <div>
+              <label htmlFor="">{itens.map((item) => item.nome)}</label>
+              <input type="radio" name="" id="" />
             </div>
           </div>
         </aside>
@@ -118,12 +121,14 @@ const NovoCardapio = () => {
                 <input type="checkbox" name="maionese" id="maionese" />
               </div>
             </div>
+
             <div>
               <h3>Tipo de refeição</h3>
               <select name="tipo_refeicao" id="tipo_refeicao">
                 <option value="-1">Selecione uma refeição</option>
               </select>
             </div>
+
 
             <div>
               <h3>Dias da semana</h3>
