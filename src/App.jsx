@@ -1,3 +1,4 @@
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./index.css";
 import Login from "./components/Login";
@@ -10,6 +11,7 @@ function App() {
       {/* <NovoCardapio /> */}
       {/* <Login /> */}
       <ModalNovoItem />
+
     </div>
   );
 }

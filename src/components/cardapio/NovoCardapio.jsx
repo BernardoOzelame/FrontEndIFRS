@@ -75,7 +75,22 @@ const NovoCardapio = () => {
               className="search-input"
             />
           </div>
-
+          <div className="w-fit">
+            <div className="sidebar-item">
+              <label htmlFor="arroz">Arroz</label>
+              <input type="checkbox" name="arroz" id="arroz" />
+            </div>
+            <div className="sidebar-item">
+              <label htmlFor="feijao">Feijão</label>
+              <input type="checkbox" name="feijao" id="feijao" />
+            </div>
+            <div className="sidebar-item">
+              <label htmlFor="batata">Batata</label>
+              <input type="checkbox" name="batata" id="batata" />
+            </div>
+            <div className="sidebar-item">
+              <label htmlFor="maionese">maionese</label>
+              <input type="checkbox" name="maionese" id="maionese" />
           <div>
             <div>
               <label htmlFor="">{itens.map((item) => item.nome)}</label>
@@ -88,11 +103,72 @@ const NovoCardapio = () => {
 
           <div>
             <h3>Itens</h3>
+            <div className="items-container">
+              <div className="item-input-field">
+                <label htmlFor="arroz">Arroz</label>
+                <input type="checkbox" name="arroz" id="arroz" />
+              </div>
+              <div className="item-input-field">
+                <label htmlFor="feijao">Feijão</label>
+                <input type="checkbox" name="feijao" id="feijao" />
+              </div>
+              <div className="item-input-field">
+                <label htmlFor="batata">Batata</label>
+                <input type="checkbox" name="batata" id="batata" />
+              </div>
+              <div className="item-input-field">
+                <label htmlFor="maionese">maionese</label>
+                <input type="checkbox" name="maionese" id="maionese" />
+              </div>
+            </div>
+
             <div>
               <h3>Tipo de refeição</h3>
               <select name="tipo_refeicao" id="tipo_refeicao">
                 <option value="-1">Selecione uma refeição</option>
               </select>
+            </div>
+
+
+            <div>
+              <h3>Dias da semana</h3>
+              <div className="items-container">
+                <div className="dia-da-semana">
+                  <label htmlFor="arroz">Seg</label>
+                  <span className="sr-only">Segunda-Feira</span>
+                  <input type="checkbox" name="arroz" id="arroz" />
+                </div>
+                <div className="dia-da-semana">
+                  <label htmlFor="feijao">ter</label>
+                  <span className="sr-only">Terça-feira</span>
+                  <input type="checkbox" name="feijao" id="feijao" />
+                </div>
+                <div className="dia-da-semana">
+                  <label htmlFor="batata">qua</label>
+                  <span className="sr-only">Quarta-feira</span>
+                  <input type="checkbox" name="batata" id="batata" />
+                </div>
+                <div className="dia-da-semana">
+                  <label htmlFor="maionese">qui</label>
+                  <span className="sr-only">Quinta-feira</span>
+                  <input type="checkbox" name="maionese" id="maionese" />
+                </div>
+                <div className="dia-da-semana">
+                  <label htmlFor="maionese">sex</label>
+                  <span className="sr-only">Sexta-feira</span>
+                  <input type="checkbox" name="maionese" id="maionese" />
+                </div>
+                <div className="dia-da-semana">
+                  <label htmlFor="maionese">sab</label>
+                  <span className="sr-only">Sábado</span>
+                  <input type="checkbox" name="maionese" id="maionese" />
+                </div>
+                <div className="dia-da-semana">
+                  <label htmlFor="maionese">dom</label>
+                  <span className="sr-only">Doming</span>
+                  <input type="checkbox" name="maionese" id="maionese" />
+                </div>
+              </div>
             </div>
 
             <button type="submit" className="px-4 mx-auto flex my-4">
