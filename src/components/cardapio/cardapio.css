@@ -9,23 +9,6 @@
     caret-color: var(--verde-primary);
 }
 
-.modal {
-    display: flex;
-    flex-direction: row;
-    width: 70vw;
-    height: auto;
-    background: #fff;
-    border: solid 1px #C9C9C9;
-    border-radius: 1rem;
-    margin: auto;
-    padding: 4rem;
-}
-
-section.modal>form {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
 
 h1 {
     color: var(--verde-primary);

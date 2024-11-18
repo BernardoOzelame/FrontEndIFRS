@@ -1,6 +1,10 @@
+import { useState } from "react";
+import ModalNovoItem from "./ModalNovoItem";
 import "./cardapio.css";
 
 const NovoCardapio = () => {
+  const [tela, setTela] = useState("");
+  const [showModal, setShowModal] = useState(true);
   const itens = [
     {
       id: 1,
@@ -65,7 +69,8 @@ const NovoCardapio = () => {
   ];
 
   return (
-    <section className="modal">
+    <section>
+      <ModalNovoItem show={showModal} hide={() => setShowModal(false)} />
       <form action="">
         <aside>
           <div>
@@ -75,6 +80,7 @@ const NovoCardapio = () => {
               className="search-input"
             />
           </div>
+
           <div className="w-fit">
             <div className="sidebar-item">
               <label htmlFor="arroz">Arroz</label>
@@ -91,10 +97,6 @@ const NovoCardapio = () => {
             <div className="sidebar-item">
               <label htmlFor="maionese">maionese</label>
               <input type="checkbox" name="maionese" id="maionese" />
-          <div>
-            <div>
-              <label htmlFor="">{itens.map((item) => item.nome)}</label>
-              <input type="radio" name="" id="" />
             </div>
           </div>
         </aside>
@@ -121,7 +123,6 @@ const NovoCardapio = () => {
                 <input type="checkbox" name="maionese" id="maionese" />
               </div>
             </div>
-
             <div>
               <h3>Tipo de refeição</h3>
               <select name="tipo_refeicao" id="tipo_refeicao">
@@ -129,10 +130,9 @@ const NovoCardapio = () => {
               </select>
             </div>
 
-
             <div>
               <h3>Dias da semana</h3>
-              <div className="items-container">
+              <div className="dias-da-semana-items-container">
                 <div className="dia-da-semana">
                   <label htmlFor="arroz">Seg</label>
                   <span className="sr-only">Segunda-Feira</span>
@@ -171,7 +171,11 @@ const NovoCardapio = () => {
               </div>
             </div>
 
-            <button type="submit" className="px-4 mx-auto flex my-4">
+            <button
+              type="button"
+              className="px-4 mx-auto flex my-4"
+              onClick={() => setShowModal(true)}
+            >
               Adiconar
             </button>
           </div>
