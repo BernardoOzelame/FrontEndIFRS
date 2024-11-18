@@ -1,0 +1,60 @@
+/* Sobrescrevendo o botão success */
+.btn-success {
+    background-color: #41A24D !important; /* Nova cor de fundo */
+    border-color: #41A24D !important;    /* Nova cor da borda */
+    color: #fff !important;             /* Cor do texto */
+}
+
+/* Hover */
+.btn-success:hover {
+    background-color: #389046 !important; /* Cor de fundo no hover (uma versão mais escura) */
+    border-color: #338342 !important;    /* Cor da borda no hover */
+}
+
+/* Focus */
+.btn-success:focus, .btn-success.focus {
+    background-color: #389046 !important; /* Fundo no foco */
+    border-color: #338342 !important;    /* Borda no foco */
+    box-shadow: 0 0 0 0.2rem rgba(65, 162, 77, 0.5) !important; /* Sombra no foco */
+}
+
+/* Active */
+.btn-success:active, .btn-success.active {
+    background-color: #338342 !important; /* Fundo ao clicar */
+    border-color: #2d753c !important;    /* Borda ao clicar */
+}
+
+/* Disabled */
+.btn-success:disabled, .btn-success.disabled {
+    background-color: #b0dcb8 !important; /* Fundo mais claro para botões desativados */
+    border-color: #b0dcb8 !important;
+    color: #6c757d !important;
+    opacity: 0.65; /* Transparência */
+}
+
+/* Outline variant */
+.btn-outline-success {
+    background-color: transparent !important;
+    border-color: #41A24D !important;
+    color: #41A24D !important;
+}
+
+/* Outline variant hover */
+.btn-outline-success:hover {
+    background-color: #41A24D !important;
+    border-color: #41A24D !important;
+    color: #fff !important;
+}
+
+.modal {
+    background-color: transparent !important;
+    border: 0 !important;
+}
+
+.modal-header {
+    border-bottom: 0 !important;
+}
+
+.modal-header .btn-close:hover {
+    background-color: #ebebeb !important;
+}
