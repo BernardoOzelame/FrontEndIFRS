@@ -10,6 +10,8 @@ const Header = () => {
             </div>
             <div className="autenticacao">
                 <p>Você ainda não está se identificou.</p>
+                {/* colocar para aparecer o icone abaixo somente depois de estar autenticado */}
+                <FaUser className="iconeAutenticacao" /> 
             </div>
         </header>
     );

@@ -20,5 +20,12 @@
 }
 
 .autenticacao {
+    display: flex;
+    align-items: center;
     margin-right: 50px;
+}
+
+.iconeAutenticacao {
+    margin-left: 10px;
+    font-size: 30px;
 }

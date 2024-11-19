@@ -58,3 +58,11 @@
 .modal-header .btn-close:hover {
     background-color: #ebebeb !important;
 }
+
+.form-control {
+    display: inline !important;
+}
+
+p {
+    margin-bottom: 0 !important;
+}
