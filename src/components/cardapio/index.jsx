@@ -1,13 +1,13 @@
 import { useState } from "react";
-import "./cardapio.css";
+import { Button } from "react-bootstrap";
+
 import ModalNovoItem from "./ModalNovoItem";
 import Header from "../Header";
-
-import Button from "react-bootstrap/Button";
-import Form from 'react-bootstrap/Form';
+import "./cardapio.css";
+import { HiOutlinePlusCircle } from "react-icons/hi2";
+import { BiSearch } from "react-icons/bi";
 
 const NovoCardapio = () => {
-  const [tela, setTela] = useState("");
   const [showModal, setShowModal] = useState(false);
   const itens = [
     {
@@ -70,147 +70,112 @@ const NovoCardapio = () => {
       calorias: 389.0,
       grupo: "Grãos",
     },
+    {
+      id: 11,
+      nome: "Feijão",
+      calorias: 389.0,
+      grupo: "Grãos",
+    },
   ];
+
+  const diasDaSemana = [
+    { abreviatura: "Seg", nome: "Segunda-Feira" },
+    { abreviatura: "ter", nome: "Terça-feira" },
+    { abreviatura: "qua", nome: "Quarta-feira" },
+    { abreviatura: "qui", nome: "Quinta-feira" },
+    { abreviatura: "sex", nome: "Sexta-feira" },
+    { abreviatura: "sab", nome: "Sábado" },
+    { abreviatura: "dom", nome: "Domingo" },
+  ];
+
+  const refeicoes = [{ nome: "Almoço" }, { nome: "Jantar" }];
 
   return (
     <>
       <Header />
-      <section>
+      <section className="cardapio-container mt-4">
         <ModalNovoItem show={showModal} hide={() => setShowModal(false)} />
         <form action="">
           <aside>
-            <div>
-              <Form.Control
+            <div className="d-flex gap-2 justify-content-between">
+              <input
+                type="text"
                 placeholder="Buscar item"
                 className="search-input"
               />
-              <Button style={{marginLeft: '10px'}} variant="success" type="button" onClick={() => setShowModal(true)}>
-              Adicionar item
+              {/* <BiSearch /> */}
+              <Button
+                variant="success"
+                onClick={() => setShowModal(true)}
+                // className="rounded-circle d-flex justify-content-center align-items-center"
+              >
+                Novo item
+                {/* <HiOutlinePlusCircle className="h4 h-fit p-0" /> */}
               </Button>
             </div>
 
-            <div style={{width: "fit-content"}}>
-              <div className="sidebar-item">
-                <label htmlFor="arroz">Arroz</label>
-                <Form.Check
-                  type="checkbox" name="arroz" id="arroz"
-                />
-              </div>
-              <div className="sidebar-item">
-                <label htmlFor="feijao">Feijão</label>
-                <Form.Check
-                  type="checkbox" name="feijao" id="feijao"
-                />
-              </div>
-              <div className="sidebar-item">
-                <label htmlFor="batata">Batata</label>
-                <Form.Check
-                  type="checkbox" name="batata" id="batata"
-                />
-              </div>
-              <div className="sidebar-item">
-                <label htmlFor="maionese">maionese</label>
-                <Form.Check
-                  type="checkbox" name="maionese" id="maionese"
-                />
-              </div>
+            <div id="items-sidebar">
+              {itens.map((item) => (
+                <div className="sidebar-item" key={item.id}>
+                  <label htmlFor={`${item.id}-sidebar`} className="fw-medium">
+                    {item.nome}
+                  </label>
+                  <div className="d-flex flex-row justify-content-center align-items-center gap-3">
+                    <p className="caloria-text">{item.calorias} cal</p>
+                    <input
+                      type="checkbox"
+                      name={item.nome}
+                      id={`${item.id}-sidebar`}
+                    />
+                  </div>
+                </div>
+              ))}
             </div>
           </aside>
           <div>
-            <h1>Novo Cardápio</h1>
+            <h1 className="fw-bold w-fit mx-auto">Novo Cardápio</h1>
 
             <div>
-              <h3>Itens</h3>
-              <div className="items-container">
-                <div className="item-input-field">
-                  <label htmlFor="arroz">Arroz</label>
-                  <Form.Check
-                    type="checkbox" name="arroz" id="arroz"
-                  />
-                </div>
-                <div className="item-input-field">
-                  <label htmlFor="feijao">Feijão</label>
-                  <Form.Check
-                    type="checkbox" name="feijao" id="feijao"
-                  />
-                </div>
-                <div className="item-input-field">
-                  <label htmlFor="batata">Batata</label>
-                  <Form.Check
-                    type="checkbox" name="batata" id="batata"
-                  />
-                </div>
-                <div className="item-input-field">
-                  <label htmlFor="maionese">maionese</label>
-                  <Form.Check
-                    type="checkbox" name="maionese" id="maionese"
-                  />
-                </div>
+              <h3 className="h5 my-3">Itens</h3>
+              <div className="items-container overflow-y-auto">
+                {itens.map((item) => (
+                  <div className="item-input-field" key={item.id}>
+                    <label htmlFor={item.id}>{item.nome}</label>
+                    <input type="checkbox" name={item.nome} id={item.id} />
+                  </div>
+                ))}
               </div>
-              <div>
-                <h3>Tipo de refeição</h3>
-                <Form.Select name="tipo_refeicao" id="tipo_refeicao">
+              <div className="my-6">
+                <h3 className="h5 my-3">Tipo de refeição</h3>
+                <select name="tipo_refeicao" id="tipo_refeicao">
                   <option value="-1">Selecione uma refeição</option>
-                </Form.Select>
+                  {refeicoes.map((refeicao, index) => (
+                    <option value={refeicao.nome} key={index}>
+                      {refeicao.nome}
+                    </option>
+                  ))}
+                </select>
               </div>
 
               <div>
-                <h3>Dias da semana</h3>
+                <h3 className="h5 my-3">Dias da semana</h3>
                 <div className="dias-da-semana-items-container">
-                  <div className="dia-da-semana">
-                    <label htmlFor="segundaFeira">Seg</label>
-                    <span className="sr-only">Segunda-Feira</span>
-                    <Form.Check
-                      type="checkbox" name="segundaFeira" id="segundaFeira"
-                    />
-                  </div>
-                  <div className="dia-da-semana">
-                    <label htmlFor="tercaFeira">ter</label>
-                    <span className="sr-only">Terça-feira</span>
-                    <Form.Check
-                      type="checkbox" name="tercaFeira" id="tercaFeira"
-                    />                  
-                  </div>
-                  <div className="dia-da-semana">
-                    <label htmlFor="quartaFeira">qua</label>
-                    <span className="sr-only">Quarta-feira</span>
-                    <Form.Check
-                      type="checkbox" name="quartaFeira" id="quartaFeira"
-                    />                   
-                  </div>
-                  <div className="dia-da-semana">
-                    <label htmlFor="quintaFeira">qui</label>
-                    <span className="sr-only">Quinta-feira</span>
-                    <Form.Check
-                      type="checkbox" name="quintaFeira" id="quintaFeira"
-                    /> 
-                  </div>
-                  <div className="dia-da-semana">
-                    <label htmlFor="sextaFeira">sex</label>
-                    <span className="sr-only">Sexta-feira</span>
-                    <Form.Check
-                      type="checkbox" name="sextaFeira" id="sextaFeira"
-                    />                   
-                  </div>
-                  <div className="dia-da-semana">
-                    <label htmlFor="sabado">sab</label>
-                    <span className="sr-only">Sábado</span>
-                    <Form.Check
-                      type="checkbox" name="sabado" id="sabado"
-                    />
-                  </div>
-                  <div className="dia-da-semana">
-                    <label htmlFor="domingo">dom</label>
-                    <span className="sr-only">Doming</span>
-                    <Form.Check
-                      type="checkbox" name="domingo" id="domingo"
-                    />
-                  </div>
+                  {diasDaSemana.map((dia, index) => (
+                    <div className="dia-da-semana" key={index}>
+                      <label htmlFor={dia.abreviatura}>{dia.abreviatura}</label>
+                      <span className="sr-only">{dia.nome}</span>
+                      <input
+                        type="checkbox"
+                        name={dia.abreviatura}
+                        id={dia.abreviatura}
+                      />
+                    </div>
+                  ))}
                 </div>
               </div>
 
-              <Button variant="success" type="button">
-              Adicionar item
+              <Button variant="success" className="my-4 mx-auto flex">
+                Adicionar
               </Button>
             </div>
           </div>
