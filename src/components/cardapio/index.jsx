@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Button } from "react-bootstrap";
+import Form from 'react-bootstrap/Form';
 
 import ModalNovoItem from "./ModalNovoItem";
 import Header from "../Header";
@@ -122,7 +123,7 @@ const NovoCardapio = () => {
                   </label>
                   <div className="d-flex flex-row justify-content-center align-items-center gap-3">
                     <p className="caloria-text">{item.calorias} cal</p>
-                    <input
+                    <Form.Check
                       type="checkbox"
                       name={item.nome}
                       id={`${item.id}-sidebar`}
@@ -141,20 +142,24 @@ const NovoCardapio = () => {
                 {itens.map((item) => (
                   <div className="item-input-field" key={item.id}>
                     <label htmlFor={item.id}>{item.nome}</label>
-                    <input type="checkbox" name={item.nome} id={item.id} />
+                    <Form.Check
+                        type="checkbox"
+                        name={item.nome}
+                        id={item.id}
+                      />
                   </div>
                 ))}
               </div>
               <div className="my-6">
                 <h3 className="h5 my-3">Tipo de refeição</h3>
-                <select name="tipo_refeicao" id="tipo_refeicao">
+                <Form.Select name="tipo_refeicao" id="tipo_refeicao" className="w-50">
                   <option value="-1">Selecione uma refeição</option>
                   {refeicoes.map((refeicao, index) => (
                     <option value={refeicao.nome} key={index}>
                       {refeicao.nome}
                     </option>
                   ))}
-                </select>
+                </Form.Select>
               </div>
 
               <div>
@@ -164,7 +169,7 @@ const NovoCardapio = () => {
                     <div className="dia-da-semana" key={index}>
                       <label htmlFor={dia.abreviatura}>{dia.abreviatura}</label>
                       <span className="sr-only">{dia.nome}</span>
-                      <input
+                      <Form.Check
                         type="checkbox"
                         name={dia.abreviatura}
                         id={dia.abreviatura}

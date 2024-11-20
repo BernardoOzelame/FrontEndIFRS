@@ -42,7 +42,7 @@ section.cardapio-container>form {
 
 .search-input {
     border: none;
-    border-radius: 999px;
+    border-radius: 8px;
     background: #c9c9c946;
     padding: 0.5rem 1rem;
     width: auto;
@@ -98,6 +98,11 @@ select {
 
 .w-fit {
     width: fit-content;
+}
+
+
+.w-50 {
+    width: 50%;
 }
 
 
@@ -162,7 +167,7 @@ label {
 
 
 aside {
-    width: 22rem;
+    width: 24rem;
     height: 100%;
 }
 
