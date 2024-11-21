@@ -122,7 +122,7 @@ const NovoCardapio = () => {
                     {item.nome}
                   </label>
                   <div className="d-flex flex-row justify-content-center align-items-center gap-3">
-                    <p className="caloria-text">{item.calorias} cal</p>
+                    <p className="caloria-text">{item.calorias} kcal</p>
                     <Form.Check
                       type="checkbox"
                       name={item.nome}

@@ -9,7 +9,7 @@ const Header = () => {
                 <img src="./../../public/ifrs_branco_completo.png" alt="Logo IFRS" className="logoHeader" />
             </div>
             <div className="autenticacao">
-                <p>Você ainda não está se identificou.</p>
+                <p>Você ainda não está se identificou.</p> {/* colocar "Olá, <nome-da-pessoa>!" quando estiver autenticada */}
                 {/* colocar para aparecer o icone abaixo somente depois de estar autenticado */}
                 <FaUser className="iconeAutenticacao" /> 
             </div>
