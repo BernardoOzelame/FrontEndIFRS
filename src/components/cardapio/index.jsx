@@ -141,7 +141,8 @@ const NovoCardapio = () => {
               <div className="items-container overflow-y-auto">
                 {itens.map((item) => (
                   <div className="item-input-field" key={item.id}>
-                    <label htmlFor={item.id}>{item.nome}</label>
+                    <label htmlFor={item.id}>{item.nome} </label>
+                    <span style={{ fontSize: '12px', color: '#BDBABB' }}>{item.calorias}kcal</span>
                     <Form.Check
                         type="checkbox"
                         name={item.nome}
