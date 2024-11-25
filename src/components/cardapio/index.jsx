@@ -17,7 +17,7 @@ const NovoCardapio = () => {
 
   const {
     data: itens,
-    idLoading,
+    isLoading,
     isError,
     refetch,
   } = useQuery({
@@ -53,9 +53,14 @@ const NovoCardapio = () => {
   };
 
   // Função para filtrar itens com base na busca
-  const filteredItems = itens.filter((item) =>
-    item.nome.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  const filteredItems = itens
+    ? itens.filter((item) =>
+        item.nome.toLowerCase().includes(searchQuery.toLowerCase())
+      )
+    : [];
+
+  if (isLoading) return <p>Carregando...</p>;
+  if (isError) return <p>Erro ao carregar os itens.</p>;
 
   return (
     <>
