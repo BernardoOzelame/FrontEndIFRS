@@ -9,7 +9,7 @@ const IdentificacaoAluno = () => {
             </div>
             <div className="informacoesAluno">
                 <div>
-                    <p>Nome: João da Silva</p>
+                    <p>João da Silva</p>
                 </div>
                 <div>
                     <img className="imgIdentificacao" src="./../../public/icone_identificador_aluno.png" alt="" />
