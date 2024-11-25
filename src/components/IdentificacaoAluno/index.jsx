@@ -12,7 +12,14 @@ const IdentificacaoAluno = () => {
                     <p>Nome: João da Silva</p>
                 </div>
                 <div>
-                    <p>Matrícula: 123456789</p>
+                    <img className="imgIdentificacao" src="./../../public/icone_identificador_aluno.png" alt="" />
+                </div>
+                <div>
+                    <p>123456789</p>
+                    <p>Técnico em Informática</p>
+                </div>
+                <div>
+                    <img className="imgIdentificacao" src="./../../public/qrcodeExemplo.png" alt="" />
                 </div>
             </div>
         </div>
