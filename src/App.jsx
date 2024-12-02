@@ -5,6 +5,7 @@ import Login from "./components/login";
 import NovoCardapio from "./components/Cardapio";
 import PgInicialUsuario from "./components/PgInicial/Usuario";
 import PgInicialAdm from "./components/PgInicial/Adm";
+import AdicionarUsuario from "./components/AdicionarUsuario";
 
 import Login from './components/Login'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -22,6 +23,7 @@ function App() {
             <Route path="/adicionarCardapio" element={<NovoCardapio />} />
             <Route path="/usuario" element={<PgInicialUsuario />} />
             <Route path="/adm" element={<PgInicialAdm />} />
+            <Route path="/adicionarUsuario" element={<AdicionarUsuario />} />
           </Routes>
         </Router>
       </QueryClientProvider>
