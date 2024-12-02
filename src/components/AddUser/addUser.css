@@ -1,0 +1,57 @@
+.addUser-container {
+    display: flex;
+    flex-direction: row;
+    width: 90vw;
+    height: 40vw;
+    max-height: 90vh;
+    background: #fff;
+    border: solid 1px #C9C9C9;
+    border-radius: 30px;
+    margin: auto;
+    padding: 2rem;
+}
+
+.dropFileLocation {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    height: 100%;
+    border-right: solid 1px #C9C9C9;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.fotoUser {
+    margin-top: 15px;
+    border: 2px dashed #ccc;
+    display: inline-block;
+    padding: 85px 85px;
+    cursor: pointer;
+}
+
+.informations {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    height: 100%;
+    padding: 0 2rem;
+}
+
+.addUser-nome, .addUser-cpf, .addUser-status {
+    width: 300px;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    outline: none;
+    font-size: 1em;
+    transition: border-color 0.3s;
+    color: #337a3b;
+}
+
+.addUser-nome {
+    width: 450px;
+}

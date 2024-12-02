@@ -6,6 +6,7 @@ import NovoCardapio from "./components/Cardapio";
 import PgInicialUsuario from "./components/PgInicial/Usuario";
 import PgInicialAdm from "./components/PgInicial/Adm";
 import IdentificacaoAluno from "./components/IdentificacaoAluno";
+import AddUser from "./components/AddUser";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -22,6 +23,7 @@ function App() {
             <Route path="/usuario" element={<PgInicialUsuario />} />
             <Route path="/adm" element={<PgInicialAdm />} />
             <Route path="/identificacaoAluno" element={<IdentificacaoAluno />} />
+            <Route path="/addUser" element={<AddUser />} />
           </Routes>
         </Router>
       </QueryClientProvider>
