@@ -1,0 +1,46 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.containerLogoIF {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 70px;
+}
+
+.informacoesAluno {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    font-size: 23px;
+    color: #41A24D;
+    margin-top: 30px;
+}
+
+.imgIdentificacao {
+    width: 200px;
+    height: 200px;
+    margin: 5px;
+}
+
+.logoIF {
+    height: 90px;
+
+}
+
+img {
+    margin: 0 auto;
+}
+
+p {
+    padding: 10px;
+    text-align: center;
+}

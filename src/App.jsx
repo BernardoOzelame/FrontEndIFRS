@@ -6,12 +6,14 @@ import NovoCardapio from "./components/Cardapio";
 import PgInicialUsuario from "./components/PgInicial/Usuario";
 import PgInicialAdm from "./components/PgInicial/Adm";
 
+import Login from './components/Login'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 const queryClient = new QueryClient();
 
 function App() {
   return (
+    <div className='App'>
     <div className="App">
       <QueryClientProvider client={queryClient}>
         <Router>
