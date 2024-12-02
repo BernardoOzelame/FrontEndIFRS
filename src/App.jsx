@@ -5,15 +5,14 @@ import Login from "./components/login";
 import NovoCardapio from "./components/Cardapio";
 import PgInicialUsuario from "./components/PgInicial/Usuario";
 import PgInicialAdm from "./components/PgInicial/Adm";
+import IdentificacaoAluno from "./components/IdentificacaoAluno";
 
-import Login from './components/Login'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 const queryClient = new QueryClient();
 
 function App() {
   return (
-    <div className='App'>
     <div className="App">
       <QueryClientProvider client={queryClient}>
         <Router>
@@ -22,6 +21,7 @@ function App() {
             <Route path="/adicionarCardapio" element={<NovoCardapio />} />
             <Route path="/usuario" element={<PgInicialUsuario />} />
             <Route path="/adm" element={<PgInicialAdm />} />
+            <Route path="/identificacaoAluno" element={<IdentificacaoAluno />} />
           </Routes>
         </Router>
       </QueryClientProvider>
