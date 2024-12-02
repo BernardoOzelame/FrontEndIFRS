@@ -5,7 +5,7 @@ const IdentificacaoAluno = () => {
     return (
         <div className="identificacao">
             <div className="containerLogoIF">
-                <img className="logoIF" src="./../../public/Logo-IFRS-cores-fundo-branco-Horizontal.jpg" alt="" />
+                <img className="logoIF" src="./../../public/Logo-IFRS-cores-fundo-branco-Horizontal-removebg-preview.png" alt="" />
             </div>
             <div className="informacoesAluno">
                 <div>
