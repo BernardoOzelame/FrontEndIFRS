@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 import ModalNovoItem from "./ModalNovoItem";
@@ -13,13 +13,14 @@ const NovoCardapio = () => {
   const api = apiService();
   const [showModal, setShowModal] = useState(false);
   const [selectedItems, setSelectedItems] = useState([]);
-  const [searchQuery, setSearchQuery] = useState(""); // Estado para o valor da busca
+  const [searchQuery, setSearchQuery] = useState("");
 
   const {
     data: itens,
     isLoading,
     isError,
     refetch,
+    // staleTime: 0,
   } = useQuery({
     queryKey: ["get-items"],
     queryFn: async () => {
@@ -28,20 +29,28 @@ const NovoCardapio = () => {
     },
   });
 
+  // Sincroniza os selectedItems com os itens atualizados
+  useEffect(() => {
+    if (itens) {
+      setSelectedItems((prevSelected) =>
+        prevSelected.filter((selected) =>
+          itens.some((item) => item.id === selected.id)
+        )
+      );
+    }
+  }, [itens]);
+
   const handleCheckboxChange = (item) => {
     setSelectedItems((prevSelected) => {
       let updatedSelected;
       if (prevSelected.find((selected) => selected.id === item.id)) {
-        // Remove o item se ele já estiver selecionado
         updatedSelected = prevSelected.filter(
           (selected) => selected.id !== item.id
         );
       } else {
-        // Adiciona o item se ele não estiver na lista
         updatedSelected = [...prevSelected, item];
       }
 
-      // Ordena os itens em ordem alfabética pelo nome
       return updatedSelected.sort((a, b) => a.nome.localeCompare(b.nome));
     });
   };
@@ -52,12 +61,42 @@ const NovoCardapio = () => {
     );
   };
 
-  // Função para filtrar itens com base na busca
   const filteredItems = itens
     ? itens.filter((item) =>
         item.nome.toLowerCase().includes(searchQuery.toLowerCase())
       )
     : [];
+
+  const handleCardapioSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      // Substitua com os valores reais, como a data e o nutricionistaId
+      const cardapioData = {
+        data: new Date().toISOString().split("T")[0], // Data atual como exemplo
+        tipoRefeicao: document.getElementById("tipo_refeicao").value,
+        nutricionistaId: 1, // Substitua pelo ID correto
+      };
+
+      // Enviar o cardápio
+      const response = await api.post("/cardapios", cardapioData);
+      console.log(response);
+      const cardapioId = response.data.cardapio.id;
+      console.log(cardapioId);
+      debugger;
+
+      // Enviar os itens selecionados
+      const itemIds = selectedItems.map((item) => item.id);
+      console.log(itemIds);
+      await api.post(`/cardapio_itens`, { cardapioId, itemIds });
+
+      alert("Cardápio adicionado com sucesso!");
+      setSelectedItems([]);
+    } catch (error) {
+      console.error("Erro ao adicionar cardápio:", error);
+      alert("Erro ao adicionar cardápio.");
+    }
+  };
 
   if (isLoading) return <p>Carregando...</p>;
   if (isError) return <p>Erro ao carregar os itens.</p>;
@@ -67,7 +106,7 @@ const NovoCardapio = () => {
       <Header />
       <section className="cardapio-container mt-4">
         <ModalNovoItem show={showModal} hide={() => setShowModal(false)} />
-        <form action="">
+        <form onSubmit={handleCardapioSubmit}>
           <aside>
             <div className="d-flex gap-2 justify-content-between">
               <div className="search-container">
@@ -75,8 +114,8 @@ const NovoCardapio = () => {
                   type="text"
                   placeholder="Buscar item"
                   className="search-input"
-                  value={searchQuery} // Vinculando ao estado de busca
-                  onChange={(e) => setSearchQuery(e.target.value)} // Atualiza o estado ao digitar
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
                 />
                 <MdOutlineSearch className="search-icon" />
               </div>
@@ -101,7 +140,6 @@ const NovoCardapio = () => {
                         <p className="caloria-text">{item.calorias} kcal</p>
                         <Form.Check
                           type="checkbox"
-                          name={item.nome}
                           id={`${item.id}-sidebar`}
                           onChange={() => handleCheckboxChange(item)}
                           checked={selectedItems.some(
@@ -116,6 +154,8 @@ const NovoCardapio = () => {
               )}
             </div>
           </aside>
+
+          {/* Seção de itens selecionados */}
           <div>
             <h1 className="fw-bold w-fit mx-auto tituloNovoCardapio">
               Novo Cardápio
@@ -177,7 +217,11 @@ const NovoCardapio = () => {
                 )}
               </div>
             </div>
-            <Button variant="success" className="my-4 mx-auto flex">
+            <Button
+              variant="success"
+              className="my-4 mx-auto flex"
+              type="submit"
+            >
               Adicionar cardápio
             </Button>
           </div>
